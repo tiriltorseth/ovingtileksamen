@@ -1,4 +1,4 @@
-function beregn(){
+function beregn() {
 
     const tall1Midlertidig = document.getElementById("tall1").value;
     const tall2Midlertidig = document.getElementById("tall2").value;
@@ -8,11 +8,26 @@ function beregn(){
     const tall2 = Number(tall2Midlertidig);
     const tall3 = Number(tall3Midlertidig);
 
-    if(isNaN(tall1) || isNaN(tall2) || isNaN(tall3)){
-        document.getElementById("resultat").innerHTML="Feilmelding, skriv inn gyldigetall";
-    } else{
-        const resultat = tall1*tall2/tall3;
-        document.getElementById("resultat").innerHTML= tall1+ "*" +tall2+ ":" +tall3 +" = "+resultat.toFixed(2);
+    /*   function feil() {
+           let utData = document.getElementById("utData");
+           if (tall1, tall2, tall3 <= 0) {
+               utData.style.color = "red";
+               utData.innerHTML = "Feilmelding, verdien til tallene må være større enn null"
+           }
+       }
+
+       feil();
+   }*/
+
+    if (isNaN(tall1) || isNaN(tall2) || isNaN(tall3)) {
+        document.getElementById("resultat").innerHTML = "Feilmelding, skriv inn gyldigetall";
+    } else {
+        const resultat = tall1 * (tall2 / tall3);
+        document.getElementById("resultat").innerHTML = tall1 + "*" + tall2 + ":" + tall3 + " = " + resultat.toFixed(2);
     }
 }
+
+
+
+
 

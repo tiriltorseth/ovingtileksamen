@@ -83,7 +83,6 @@ function leggTil() {
     }
 }
 
-
 function nullstillInput() {
     document.getElementById("nullstillFornavn").innerHTML = "";
     document.getElementById("nullstillEtternavn").innerHTML = "";
@@ -132,10 +131,6 @@ function slettAdresse(){
     document.getElementById("visAdresser").innerHTML = "";
 }
 
-
-
-
-TESTER
 
 
 
