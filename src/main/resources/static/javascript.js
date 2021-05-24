@@ -114,19 +114,19 @@ function skrivUt() {
     for (let a of adresseListe) {
         ut += "<tr>";
         ut += "<td>" + a.fornavn + "</td>" +
-              "<td>" + a.etternavn + "</td>"+
-              "<td>" + a.adresse + "</td>" +
-              "<td>" + a.postnummer + "</td>" +
-              "<td>" + a.poststed + "</td>" +
-              "<td>" + a.fodselsnummer + "</td>"
+            "<td>" + a.etternavn + "</td>" +
+            "<td>" + a.adresse + "</td>" +
+            "<td>" + a.postnummer + "</td>" +
+            "<td>" + a.poststed + "</td>" +
+            "<td>" + a.fodselsnummer + "</td>"
         ut += "</tr>";
     }
 
-    ut+= "</table>";
+    ut += "</table>";
     document.getElementById("visAdresser").innerHTML = ut;
 }
 
-function slettAdresse(){
+function slettAdresse() {
     adresseListe = [];
     document.getElementById("visAdresser").innerHTML = "";
 }

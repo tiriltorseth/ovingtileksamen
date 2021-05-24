@@ -1,5 +1,4 @@
-let adresseListe = [];
-
+// REGISTRER ADRESSER
 function skrivInn() {
     let fyllInn = true;
 
@@ -54,6 +53,7 @@ function skrivInn() {
     return fyllInn;
 }
 
+// LEGG TIL ADRESSER
 function leggTil() {
     if (skrivInn()) {
         let alleAdresser = {
@@ -65,14 +65,17 @@ function leggTil() {
             fodselsnummer: $("#fodselsnummer").val()
         }
 
-        adresseListe.push(alleAdresser);
+        $.post("/lagre",alleAdresser, function (){
+            hentAdresser();
+        });
         nullstillInput();
         nullstillAdresser();
-        skrivUt();
+
         console.log("Skrevet ut");
     }
 }
 
+//NULLSTILL MELDING I INPUTBOKSEN
 function nullstillInput() {
     $("#nullstillFornavn").html = "";
     $("#nullstillEtternavn").html = "";
@@ -82,6 +85,7 @@ function nullstillInput() {
     $("#nullstillFodselsnummer").html = "";
 }
 
+//NULLSTILL VERDIENE I INPUT
 function nullstillAdresser() {
     $("#fornavn").val("");
     $("#etternavn").val("");
@@ -91,7 +95,19 @@ function nullstillAdresser() {
     $("#fodselsnummer").val("");
 }
 
-function skrivUt() {
+
+//HENT ADRESSER VIA GETMAPPING
+function hentAdresser(){
+    console.log("henter billetter");
+    $.get("/hentAdresser", function (alleAdresser){
+        skrivUt(alleAdresser)
+    });
+}
+
+
+//SKRIV UT ADRESSENE I EN TABELL
+function skrivUt(alleAdresser) {
+    console.log("Skriver ut billetter");
     let ut = "<table><tr>" +
         "<th>Fornavn</th>" +
         "<th>Etternavn</th>" +
@@ -101,7 +117,7 @@ function skrivUt() {
         "<th>Fødselsnummer</th>" +
         "</tr>";
 
-    for (let a of adresseListe) {
+    for (let a of alleAdresser) {
         ut += "<tr>";
         ut += "<td>" + a.fornavn + "</td>" +
             "<td>" + a.etternavn + "</td>"+
@@ -116,11 +132,14 @@ function skrivUt() {
     $("#visAdresser").html(ut);
 }
 
+
+//SLETT ADRESSENE
 function slettAdresse(){
-    adresseListe = [];
-    $("#visAdresser").html("");
+    console.log("slett bilett");
+    $.get("/slettAdresser",function (){
+        hentAdresser();
+        $("#visAdresser").html("");
+        $("#ut").html("");
+    });
+
 }
-
-
-
-
