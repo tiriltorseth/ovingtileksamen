@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="javascript.js"></script>
+    <title>Adressebok</title>
+</head>
+<body>
+<br>
+<h1>Adressebok</h1>
+<p>Fyll inn informasjonen nednefor, slik det står i passet:</p>
+
+<table>
+    <tr>
+        <td>Fornavn
+        <td>
+        <td><label for="fornavn"><input type="text" id="fornavn"></label></td>
+        <td>
+            <div id="nullstillFornavn"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>Etternavn
+        <td>
+        <td><label for="etternavn"><input type="text" id="etternavn"></label></td>
+        <td>
+            <div id="nullstillEtternavn"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>Adresse
+        <td>
+        <td><label for="adresse"><input type="text" id="adresse"></label></td>
+        <td>
+            <div id="nullstillAdresse"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>Postnummer
+        <td>
+        <td><label for="postnummer"><input type="text" id="postnummer"></label></td>
+        <td>
+            <div id="nullstillPostnummer"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>Poststed
+        <td>
+        <td><label for="poststed"><input type="text" id="poststed"></label></td>
+        <td>
+            <div id="nullstillPoststed"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>Fødselsnummer
+        <td>
+        <td><label for="fodselsnummer"><input type="text" id="fodselsnummer"></label></td>
+        <td>
+            <div id="nullstillFodselsnummer"></div>
+        </td>
+    </tr>
+</table>
+
+<br><br/>
+
+
+<button onclick="leggTil()">Legg til adresse</button>
+<div id="visAdresser"></div>
+
+<br><br/>
+
+<button onclick="slettAdresse()">Slett alle adresser</button>
+
+
+</body>
+</html>
